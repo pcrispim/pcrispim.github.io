@@ -29,33 +29,6 @@
 
         document.getElementById('files').addEventListener('change', handleFileSelect, false);
     </script>
-
-    <br/>
-    <br/>
-    <br/>
-
-    <script type="text/javascript">
-        function launchSaveToOneDrive() {
-            const odOptions = {
-                clientId: "",
-                action: "save",
-                sourceInputElementId: "fileUploadControl",
-                sourceUri: "",
-                fileName: "",
-                openInNewWindow: true,
-                advanced: {},
-                success: function (files) { alert("success!"); },
-                progress: function (p) { /* progress handler */ },
-                cancel: function () { /* cancel handler */ },
-                error: function (e) { alert(e); }
-            }
-            OneDrive.save(odOptions);
-        }
-    </script>
-
-    <input id="fileUploadControl" name="fileUploadControl" type="file" accept="image/*" />
-    <br/>
-    <button onclick="launchSaveToOneDrive()">Save to OneDrive</button>
 </body>
 
 </html>
