@@ -22,7 +22,7 @@
                 output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ')<br/>',
                     f.size, ' bytes<br/>last modified: ',
                     f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
-                    `<img id="${escape(f.name)}" src="" alt="${escape(f.name)}" style="width:100pt"/>`,
+                    `<br/><img id="${escape(f.name)}" src="" alt="${escape(f.name)}" style="width:200pt"/><br/>`,
                     '</li>');
             }
             document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
