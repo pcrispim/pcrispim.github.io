@@ -27,7 +27,7 @@
             }
             document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
 
-            files.array.forEach(file => {
+            Array.from(files).forEach(file => {
                 const reader = new FileReader();
                 reader.onload = event => {
                     document.getElementById(escape(file.name)).src = event.target.result;
