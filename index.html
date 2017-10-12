@@ -9,8 +9,24 @@
 <body>
     <input type="file" id="files" name="files[]" multiple accept="image/*;capture=camera" />
     <output id="list"></output>
+    <br/>
+    <br/>
+    <br/>
+    <button onclick="registerForNotifications()">Notifications</button>
 
     <script>
+        function registerForNotifications() {
+            document.location.replace("loop://notifications?tag=pedro@loopsoftware.fr");
+        }
+
+        function requestIdentification() {
+            document.location.replace("loop://identification");
+        }
+
+        function handleIdentificationResult(success) {
+            alert(`user ${success ? "identified" : "unknown"}`);
+        }
+
         function handleNotifications(notification) {
             alert(notification.subject);
         }
