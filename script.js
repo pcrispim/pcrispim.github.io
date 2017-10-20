@@ -1,14 +1,18 @@
 "use strict";
 
-function registerForNotifications() {
-    document.location.replace("loop://notifications?tag=pedro@loopsoftware.fr");
+function loginUser() {
+    document.location.replace("loop://login?userId=pedro@loopsoftware.fr");
 }
 
-function requestIdentification() {
+function logoutUser() {
+    document.location.replace("loop://logout?userId=pedro@loopsoftware.fr");
+}
+
+function authoriseUser() {
     document.location.replace("loop://authorisation");
 }
 
-function handleIdentificationResult(success) {
+function handleAuthorisation(success) {
     alert("figerprint scan: " + success);
 }
 
