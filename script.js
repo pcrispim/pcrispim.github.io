@@ -17,7 +17,7 @@ function handleAuthorisation(success) {
 }
 
 function handleNotification(notification) {
-    alert(`${notification.subject}: ${notification.body}`);
+    alert(notification.subject + ": " + notification.body);
 }
 
 function handleFileSelect(evt) {
