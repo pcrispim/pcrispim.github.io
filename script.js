@@ -17,6 +17,7 @@ function handleAuthorisation(success) {
 }
 
 function handleNotification(notification) {
+    alert(JSON.stringify(notification));
     alert(notification.subject);
 }
 
