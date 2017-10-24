@@ -16,7 +16,7 @@ function handleAuthorisation(success) {
     alert("figerprint scan: " + success);
 }
 
-function handleNotifications(notification) {
+function handleNotification(notification) {
     alert(notification.subject);
 }
 
