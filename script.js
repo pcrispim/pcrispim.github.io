@@ -17,8 +17,7 @@ function handleAuthorisation(success) {
 }
 
 function handleNotification(notification) {
-    alert(JSON.stringify(notification));
-    alert(notification.subject);
+    alert(`${notification.subject}: ${notification.body}`);
 }
 
 function handleFileSelect(evt) {
