@@ -21,7 +21,7 @@ function handleNotification(notification) {
 }
 
 function getCamera() {
-    navigator.mediaDevices.getUserMedia()
+    navigator.mediaDevices.getUserMedia({ video: true })
         .then(gotMedia)
         .catch(error => console.error('getUserMedia() error:', error));
 }
@@ -29,6 +29,10 @@ function getCamera() {
 function gotMedia(mediaStream) {
     const mediaStreamTrack = mediaStream.getVideoTracks()[0];
     const imageCapture = new ImageCapture(mediaStreamTrack);
+    imageCapture.takePhoto()
+        .then(blob => createImageBitmap(blob))
+        .then(imageBitmap => { })
+        .catch(error => console.error("gotMedia() error: ", error));
     console.log(imageCapture);
 }
 
