@@ -21,7 +21,7 @@ function handleNotification(notification) {
 }
 
 function getCamera() {
-    navigator.mediaDevices.getUserMedia(constraints)
+    navigator.mediaDevices.getUserMedia()
         .then(function (stream) {
             /* use the stream */
         })
