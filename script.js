@@ -13,7 +13,7 @@ function authoriseUser() {
 }
 
 function handleAuthorisation(success) {
-    alert("figerprint scan: " + success);
+    alert("fingerprint scan: " + success);
 }
 
 function handleNotification(notification) {
