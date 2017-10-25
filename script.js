@@ -22,12 +22,14 @@ function handleNotification(notification) {
 
 function getCamera() {
     navigator.mediaDevices.getUserMedia()
-        .then(function (stream) {
-            /* use the stream */
-        })
-        .catch(function (err) {
-            /* handle the error */
-        });
+        .then(gotMedia)
+        .catch(error => console.error('getUserMedia() error:', error));
+}
+
+function gotMedia(mediaStream) {
+    const mediaStreamTrack = mediaStream.getVideoTracks()[0];
+    const imageCapture = new ImageCapture(mediaStreamTrack);
+    console.log(imageCapture);
 }
 
 function handleFileSelect(evt) {
