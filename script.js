@@ -20,6 +20,16 @@ function handleNotification(notification) {
     alert(notification.subject + ": " + notification.body);
 }
 
+function getCamera() {
+    navigator.mediaDevices.getUserMedia(constraints)
+        .then(function (stream) {
+            /* use the stream */
+        })
+        .catch(function (err) {
+            /* handle the error */
+        });
+}
+
 function handleFileSelect(evt) {
     const files = evt.target.files; // FileList object
 
