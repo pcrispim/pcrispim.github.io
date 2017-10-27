@@ -1,5 +1,7 @@
 "use strict";
 
+document.getElementById("agent").innerHTML = navigator.userAgent;
+
 function loginUser() {
     document.location.replace("loop://login?userId=pedro@loopsoftware.fr");
 }
