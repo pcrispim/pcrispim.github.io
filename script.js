@@ -25,9 +25,10 @@ function handleNotification(notification) {
 }
 
 function getCamera() {
-    navigator.mediaDevices.getUserMedia({ video: true })
-        .then(gotMedia)
-        .catch(error => console.error('getUserMedia() error:', error));
+    // navigator.mediaDevices.getUserMedia({ video: true })
+    //     .then(gotMedia)
+    //     .catch(error => console.error('getUserMedia() error:', error));
+    document.location.replace("loop://camera");
 }
 
 function gotMedia(mediaStream) {
