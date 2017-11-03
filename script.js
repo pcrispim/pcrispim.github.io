@@ -44,9 +44,9 @@ function gotMedia(mediaStream) {
     console.log(imageCapture);
 }
 
-function showPhoto(imageBitmap) {
+function showPhoto(image) {
     const canvas = document.querySelector("#photoCanvas");
-    drawCanvas(canvas, imageBitmap);
+    drawCanvas(canvas, image);
 }
 
 function drawCanvas(canvas, img) {
