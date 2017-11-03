@@ -44,6 +44,11 @@ function gotMedia(mediaStream) {
     console.log(imageCapture);
 }
 
+function showPhoto(imageBitmap) {
+    const canvas = document.querySelector("#photoCanvas");
+    drawCanvas(canvas, imageBitmap);
+}
+
 function drawCanvas(canvas, img) {
     canvas.width = getComputedStyle(canvas).width.split('px')[0];
     canvas.height = getComputedStyle(canvas).height.split('px')[0];
