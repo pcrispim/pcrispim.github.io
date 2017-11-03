@@ -45,16 +45,18 @@ function gotMedia(mediaStream) {
 }
 
 function showPhoto(imgBase64) {
-    // const canvas = document.querySelector("#photoCanvas");
-    // const context = canvas.getContext("2d");
+    const canvas = document.querySelector("#photoCanvas");
+    const context = canvas.getContext("2d");
 
-    // const image = new Image();
-    // image.onload = () => {
-    //     context.drawImage(image, 0, 0);
-    // };
+    const image = new Image();
+    image.onload = () => {
+        context.drawImage(image, 0, 0);
+    };
 
-    // image.src = imgBase64;
+    image.src = imgBase64;
+}
 
+function showImage(imgBase64) {
     const imgElement = document.getElementById("image").src = imgBase64;
 }
 
