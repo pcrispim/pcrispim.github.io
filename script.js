@@ -5,7 +5,8 @@ function setUserAgent() {
 }
 
 function loginUser() {
-    document.location.replace("loop://login?userId=pedro@loopsoftware.fr");
+    const userId = "pedro@loopsoftware.fr";
+    document.location.replace(`loop://register?userId=${userId}`);
 }
 
 function handleDeviceCapabilities(capabilities) {
@@ -19,11 +20,12 @@ function handleDeviceCapabilities(capabilities) {
 }
 
 function logoutUser() {
-    document.location.replace("loop://logout?userId=pedro@loopsoftware.fr");
+    const userId = "pedro@loopsoftware.fr";
+    document.location.replace(`loop://unregister?userId=${userId}`);
 }
 
 function authoriseUser() {
-    document.location.replace("loop://authorisation");
+    document.location.replace("loop://fingerprint");
 }
 
 function handleAuthorisation(success) {
