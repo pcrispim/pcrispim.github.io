@@ -1,3 +1,6 @@
+// request functions - invoke device actions by means of url redirection...
+
+
 /**
  * Registers the given user identifier with the native mobile application.
  * The user id is expected to be the user principal name (UPN): e.g., user@loopsoftware.fr.
@@ -5,18 +8,6 @@
  */
 function registerUser(userId: string) {
     document.location.replace(`loop://register?userId=${userId}`);
-}
-
-/**
- * Receives the capabilities of the device.
- * @param capabilities - device capabailities
- */
-function handleDeviceCapabilities(capabilities) {
-    if (capabilities.html5Camera) {
-        // use html5 camera capture to get photos...
-    } else {
-        // use the getCameraCapture() function to request the device to take use camera...
-    }
 }
 
 /**
@@ -34,6 +25,30 @@ function unregisterUser(userId: string) {
  */
 function getFingerprintAuthorisation() {
     document.location.replace("loop://fingerprint");
+}
+
+/**
+ * Requests access to the camera application.
+ * (Android only.)
+ */
+function getCameraCapture() {
+    document.location.replace("loop://camera");
+}
+
+
+// response function - must be global so that device can access them from outside the webview...
+
+
+/**
+ * Receives the capabilities of the device.
+ * @param capabilities - device capabailities
+ */
+function handleDeviceCapabilities(capabilities) {
+    if (capabilities.html5Camera) {
+        // use html5 camera capture to get photos...
+    } else {
+        // use the getCameraCapture() function to request the device to take use camera...
+    }
 }
 
 /**
@@ -66,14 +81,6 @@ function handleFingerprintResult(result: string) {
             // anything else is a failure...
             break;
     }
-}
-
-/**
- * Requests access to the camera application.
- * (Android only.)
- */
-function getCameraCapture() {
-    document.location.replace("loop://camera");
 }
 
 /**

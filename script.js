@@ -28,7 +28,7 @@ function authoriseUser() {
     document.location.replace("loop://fingerprint");
 }
 
-function handleAuthorisation(success) {
+function handleFingerprintResult(success) {
     alert("fingerprint scan: " + success);
 }
 
