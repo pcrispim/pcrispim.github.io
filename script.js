@@ -8,6 +8,16 @@ function loginUser() {
     document.location.replace("loop://login?userId=pedro@loopsoftware.fr");
 }
 
+function handleDeviceCapabilities(capabilities) {
+    if (capabilities.html5Camera) {
+        // use html5 camera capture to get photos...
+        alert("can use html5 camera!");
+    } else {
+        // use the getCameraCapture() function to request the device to take use camera...
+        alert("cannot use html5 camera...");
+    }
+}
+
 function logoutUser() {
     document.location.replace("loop://logout?userId=pedro@loopsoftware.fr");
 }
