@@ -57,6 +57,8 @@ function gotMedia(mediaStream) {
 }
 
 function handleCameraResult(imgBase64) {
+    alert("received image...");
+
     const canvas = document.querySelector("#photoCanvas");
     const context = canvas.getContext("2d");
 
