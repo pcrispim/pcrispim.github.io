@@ -10,7 +10,7 @@ function loginUser() {
 }
 
 function handleDeviceCapabilities(capabilities) {
-    if (capabilities.html5Camera) {
+    if (capabilities.html5Camera === true) {
         // use html5 camera capture to get photos...
         alert("can use html5 camera!");
     } else {
