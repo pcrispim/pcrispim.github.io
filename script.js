@@ -102,7 +102,7 @@ function handleCameraResult(imgBase64) {
         const canvas = document.querySelector("#photoCanvas");
         const context = canvas.getContext("2d");
 
-        context.drawImage(image, 0, 0);
+        context.drawImage(image, 0, 0, 800, 600);
     };
 
     image.src = imgBase64;
