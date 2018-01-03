@@ -43,8 +43,6 @@ function getCamera() {
     document.location.replace("loop://camera");
 }
 
-function showPhoto()
-
 function gotMedia(mediaStream) {
     const mediaStreamTrack = mediaStream.getVideoTracks()[0];
     const imageCapture = new ImageCapture(mediaStreamTrack);
