@@ -97,11 +97,11 @@ function handleFiles(files) {
 function handleCameraResult(imgBase64) {
     alert("received image...");
 
-    const canvas = document.querySelector("#photoCanvas");
-    const context = canvas.getContext("2d");
-
     const image = new Image();
     image.onload = () => {
+        const canvas = document.querySelector("#photoCanvas");
+        const context = canvas.getContext("2d");
+
         context.drawImage(image, 0, 0);
     };
 
