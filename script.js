@@ -64,19 +64,6 @@ function gotMedia(mediaStream) {
     console.log(imageCapture);
 }
 
-window.URL = window.URL || window.webkitURL;
-
-var fileSelect = document.getElementById("fileSelect"),
-    fileElem = document.getElementById("fileElem"),
-    fileList = document.getElementById("fileList");
-
-fileSelect.addEventListener("click", function (e) {
-    if (fileElem) {
-        fileElem.click();
-    }
-    e.preventDefault(); // prevent navigation to "#"
-}, false);
-
 function handleFiles(files) {
     if (!files.length) {
         fileList.innerHTML = "<p>No files selected!</p>";
