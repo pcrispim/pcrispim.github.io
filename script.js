@@ -103,17 +103,31 @@ function handleFiles(files) {
 }
 
 function handleCameraResult(imgBase64) {
-    alert("received image...");
+    switch (result) {
+        case "no-camera":
+            alert("no camera!");
+            break;
 
-    const image = new Image();
-    image.onload = () => {
-        const canvas = document.querySelector("#photoCanvas");
-        const context = canvas.getContext("2d");
+        case "user-cancel":
+            alert("user cancelled...");
+            break;
 
-        context.drawImage(image, 0, 0, 800, 600);
-    };
+        default:
+            {
+                alert("received image...");
 
-    image.src = imgBase64;
+                const image = new Image();
+                image.onload = () => {
+                    const canvas = document.querySelector("#photoCanvas");
+                    const context = canvas.getContext("2d");
+
+                    context.drawImage(image, 0, 0, 800, 600);
+                };
+
+                image.src = imgBase64;
+            }
+            break;
+    }
 }
 
 function showImage(imgBase64) {
