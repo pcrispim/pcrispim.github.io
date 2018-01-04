@@ -113,25 +113,22 @@ function handleCameraResult(imgBase64) {
             break;
 
         default:
-            {
-                alert("received image...");
-
-                const image = new Image();
-                image.onload = () => {
-                    const canvas = document.querySelector("#photoCanvas");
-                    const context = canvas.getContext("2d");
-
-                    context.drawImage(image, 0, 0, 800, 600);
-                };
-
-                image.src = imgBase64;
-            }
+            alert("received image...");
+            showImage(imgBase64)
             break;
     }
 }
 
 function showImage(imgBase64) {
-    const imgElement = document.getElementById("image").src = imgBase64;
+    const image = new Image();
+    image.onload = () => {
+        const canvas = document.querySelector("#photoCanvas");
+        const context = canvas.getContext("2d");
+
+        context.drawImage(image, 0, 0, 800, 600);
+    };
+
+    image.src = imgBase64;
 }
 
 function drawCanvas(canvas, img) {
