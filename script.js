@@ -103,7 +103,7 @@ function handleFiles(files) {
 }
 
 function handleCameraResult(imgBase64) {
-    switch (result) {
+    switch (imgBase64) {
         case "no-camera":
             alert("no camera!");
             break;
