@@ -10,13 +10,21 @@ function loginUser() {
 }
 
 function handleDeviceCapabilities(capabilities) {
-    if (capabilities.html5Camera === true) {
-        // use html5 camera capture to get photos...
-        alert("can use html5 camera!");
-    } else {
+    if (capabilities.html5Camera === false) {
         // use the getCameraCapture() function to request the device to take use camera...
         alert("cannot use html5 camera...");
+    } else {
+        // use html5 camera capture to get photos...
+        alert("can use html5 camera!");
     }
+
+    // if (capabilities.html5Camera === true) {
+    //     // use html5 camera capture to get photos...
+    //     alert("can use html5 camera!");
+    // } else {
+    //     // use the getCameraCapture() function to request the device to take use camera...
+    //     alert("cannot use html5 camera...");
+    // }
 }
 
 function logoutUser() {
