@@ -17,14 +17,6 @@ function handleDeviceCapabilities(capabilities) {
         // use html5 camera capture to get photos...
         alert("can use html5 camera!");
     }
-
-    // if (capabilities.html5Camera === true) {
-    //     // use html5 camera capture to get photos...
-    //     alert("can use html5 camera!");
-    // } else {
-    //     // use the getCameraCapture() function to request the device to take use camera...
-    //     alert("cannot use html5 camera...");
-    // }
 }
 
 function logoutUser() {
@@ -45,9 +37,6 @@ function handleNotification(notification) {
 }
 
 function getCamera() {
-    // navigator.mediaDevices.getUserMedia({ video: true })
-    //     .then(gotMedia)
-    //     .catch(error => console.error('getUserMedia() error:', error));
     document.location.replace("loop://camera");
 }
 
@@ -151,4 +140,4 @@ function handleFileSelect(evt) {
     });
 }
 
-document.getElementById('files').addEventListener('change', handleFileSelect, false);
+document.getElementById("files").addEventListener("change", handleFileSelect, false);
