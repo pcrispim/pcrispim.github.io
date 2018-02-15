@@ -1,11 +1,13 @@
 "use strict";
 
+const publicKey = "BD3bVDccYiQRNV1S31iXxA1clzBGvlRknP2yvYwKMRyu4bt4ObTc0fvI0XrP6FBy8T8ldFIGY3N-aRBSqqhIZ5M";
+
 let swRegistration = null;
 
 if ("serviceWorker" in navigator && "PushManager" in window) {
     console.log("Service Worker and Push is supported");
 
-    navigator.serviceWorker.register("scripts/sw.js")
+    navigator.serviceWorker.register("sw.js")
         .then(function (swReg) {
             console.log("Service Worker is registered", swReg);
 
@@ -16,4 +18,19 @@ if ("serviceWorker" in navigator && "PushManager" in window) {
         });
 } else {
     console.warn("Push messaging is not supported");
+}
+
+if (swRegistration) {
+    swRegistration.pushManager.getSubscription()
+        .then(function (subscription) {
+            isSubscribed = !(subscription === null);
+
+            // TODO: register to server...
+
+            if (isSubscribed) {
+                console.log('User IS subscribed.');
+            } else {
+                console.log('User is NOT subscribed.');
+            }
+        });
 }
