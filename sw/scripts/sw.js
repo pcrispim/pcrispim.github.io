@@ -5,7 +5,6 @@ self.addEventListener("install", event => {
     event.waitUntil(self.skipWaiting());
 });
 
-
 self.addEventListener('activate', event => {
     console.log("service worker >> activated!");
     event.waitUntil(self.clients.claim());
