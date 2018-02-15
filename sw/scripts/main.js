@@ -23,21 +23,35 @@ if ("serviceWorker" in navigator && "PushManager" in window) {
     console.warn("Push messaging is not supported");
 }
 
-function register() {
-    if (!swRegistration) {
-        throw new Error("Service worker not registered!");
-    }
+function subscribe() {
+    const applicationServerKey = urlB64ToUint8Array(publicKey);
 
-    return swRegistration.pushManager.getSubscription()
+    const options = { userVisibleOnly: true, applicationServerKey: applicationServerKey };
+    swRegistration.pushManager.subscribe(options)
         .then(function (subscription) {
-            isSubscribed = !(subscription === null);
+            console.log('User is subscribed.');
 
-            // TODO: register to server...
+            registerToServer(subscription);
 
-            if (isSubscribed) {
-                console.log('User IS subscribed.');
-            } else {
-                console.log('User is NOT subscribed.');
-            }
+            isSubscribed = true;
+        })
+        .catch(function (err) {
+            console.log('Failed to subscribe the user: ', err);
         });
 }
+
+function urlB64ToUint8Array(base64String) {
+    const padding = '='.repeat((4 - base64String.length % 4) % 4);
+    const base64 = (base64String + padding).replace(/\-/g, '+').replace(/_/g, '/');
+
+    const rawData = window.atob(base64);
+    const outputArray = new Uint8Array(rawData.length);
+
+    for (let i = 0; i < rawData.length; ++i) {
+        outputArray[i] = rawData.charCodeAt(i);
+    }
+
+    return outputArray;
+}
+
+function registerToServer(subscription) { }
