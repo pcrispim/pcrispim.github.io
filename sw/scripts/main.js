@@ -3,6 +3,7 @@
 const publicKey = "BD3bVDccYiQRNV1S31iXxA1clzBGvlRknP2yvYwKMRyu4bt4ObTc0fvI0XrP6FBy8T8ldFIGY3N-aRBSqqhIZ5M";
 
 let swRegistration = null;
+let isSubscribed = false;
 
 if ("serviceWorker" in navigator && "PushManager" in window) {
     console.log("Service Worker and Push is supported");
