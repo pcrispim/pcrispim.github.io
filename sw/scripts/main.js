@@ -14,7 +14,7 @@ if ("serviceWorker" in navigator && "PushManager" in window) {
 
             swRegistration = swReg;
 
-            register();
+            subscribe();
         })
         .catch(function (error) {
             console.error("Service Worker Error", error);
@@ -31,12 +31,30 @@ function subscribe() {
         .then(function (subscription) {
             console.log('User is subscribed.');
 
-            registerToServer(subscription);
+            registerOnServer(subscription);
 
             isSubscribed = true;
         })
         .catch(function (err) {
             console.log('Failed to subscribe the user: ', err);
+        });
+}
+
+function unsubscribe() {
+    swRegistration.pushManager.getSubscription()
+        .then(function (subscription) {
+            if (subscription) {
+                return subscription.unsubscribe();
+            }
+        })
+        .catch(function (error) {
+            console.log('Error unsubscribing', error);
+        })
+        .then(function () {
+            registerOnServer(null);
+
+            console.log('User is unsubscribed.');
+            isSubscribed = false;
         });
 }
 
@@ -54,4 +72,10 @@ function urlB64ToUint8Array(base64String) {
     return outputArray;
 }
 
-function registerToServer(subscription) { }
+function registerOnServer(subscription) {
+    if (subscription) {
+        // initial registration or update...
+    } else {
+        // unregistration...
+    }
+}
